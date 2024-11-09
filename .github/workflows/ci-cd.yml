@@ -55,5 +55,14 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t swapi-microservice:${{ github.sha }} .
+          docker build -t fguendli/swapi-microservice:${{ github.sha }} .
 
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: fguendli
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Push Docker image to Docker Hub
+        run: |
+          docker push fguendli/swapi-microservice:${{ github.sha }}
