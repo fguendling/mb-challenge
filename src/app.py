@@ -14,24 +14,24 @@ def fetch_and_sort_data():
     try:
         logger.info("Fetching data from SWAPI People endpoint.")
         response = requests.get(SWAPI_URL)
-        
+
         if response.status_code != 200:
-            logger.error(f"Failed to fetch data from SWAPI: {response.status_code}")
+            logger.error(f"Failed to fetch data: {response.status_code}")
             abort(500, description="Failed to fetch data from SWAPI.")
-        
+
         data = response.json()
         people = data.get('results', [])
-        
+
         if not people:
             logger.warning("No data found in the response.")
             abort(404, description="No data found.")
-        
+
         # Sort data by 'name' in ascending order
-        sorted_people = sorted(people, key=lambda person: person['name'].lower())
-        
-        logger.info(f"Sorted {len(sorted_people)} people by name.")
-        return sorted_people
-    
+        sorted_p = sorted(people, key=lambda person: person['name'].lower())
+
+        logger.info(f"Sorted {len(sorted_p)} people by name.")
+        return sorted_p
+
     except requests.exceptions.RequestException as e:
         logger.error(f"Request exception: {e}")
         abort(500, description="Error occurred while fetching data.")
@@ -49,4 +49,3 @@ def get_sorted_people():
 if __name__ == '__main__':
     logger.info("Starting microservice.")
     app.run(debug=True, host='0.0.0.0', port=5000)
-
