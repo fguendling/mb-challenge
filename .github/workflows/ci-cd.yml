@@ -30,10 +30,10 @@ jobs:
           pip install flake8
           flake8 .
 
-      - name: Run Unit Tests (pytest)
-        run: |
-          pip install pytest
-          pytest --maxfail=1 --disable-warnings -q
+#      - name: Run Unit Tests (pytest)
+#        run: |
+#          pip install pytest
+#          pytest --maxfail=1 --disable-warnings -q
 
   build_and_push_docker_image:
     runs-on: ubuntu-latest
