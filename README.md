@@ -1,4 +1,4 @@
-# md-challenge
+# mb-challenge
 
 The project contains a basic microservice that fetches data from an API (https://swapi.dev/) and returns some of the data in an ordered format.
 
