@@ -2,5 +2,14 @@
 
 The project contains a basic microservice. 
 
-Run it locally: `sudo docker run fguendli/swapi-microservice:1970659dc46f86e4a9a1308613098f14c424ba05`
+## Running it locally
+
+```
+sudo docker run fguendli/swapi-microservice:5cc504ac41ee85baed656abc7aa794b2dd45fc4a
+```
+
+## Todos
+
+- Deploy to Kubernetes (local or somewhere else)
+- Performance and Scaling (optional)
 
